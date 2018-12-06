@@ -134,7 +134,7 @@
 		ED1AFD241E942B2500FD4B90 = {
 			isa = PBXGroup;
 			children = (
-				ED1AFD2F1E942B2500FD4B90 /* twitter_alamofire_demo */,
+				ED1AFD2F1E942B2500FD4B90 /* twitter */,
 				ED1AFD441E942B2500FD4B90 /* twitter_alamofire_demoTests */,
 				ED1AFD4F1E942B2500FD4B90 /* twitter_alamofire_demoUITests */,
 				ED1AFD2E1E942B2500FD4B90 /* Products */,
@@ -153,7 +153,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		ED1AFD2F1E942B2500FD4B90 /* twitter_alamofire_demo */ = {
+		ED1AFD2F1E942B2500FD4B90 /* twitter */ = {
 			isa = PBXGroup;
 			children = (
 				ED1D23501EF7650B00C51ACC /* API */,
@@ -167,7 +167,7 @@
 				ED1AFD391E942B2500FD4B90 /* LaunchScreen.storyboard */,
 				ED1AFD3C1E942B2500FD4B90 /* Info.plist */,
 			);
-			path = twitter_alamofire_demo;
+			path = twitter;
 			sourceTree = "<group>";
 		};
 		ED1AFD441E942B2500FD4B90 /* twitter_alamofire_demoTests */ = {
@@ -299,11 +299,10 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
-				ORGANIZATIONNAME = "Charles Hieger";
+				ORGANIZATIONNAME = "Jonathan Ibironke";
 				TargetAttributes = {
 					ED1AFD2C1E942B2500FD4B90 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = JUWAAV2WU4;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -701,7 +700,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = twitter_alamofire_demo/twitter_alamofire_demo.entitlements;
-				DEVELOPMENT_TEAM = JUWAAV2WU4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = twitter_alamofire_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.twitter-alamofire-demo";
@@ -716,7 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = twitter_alamofire_demo/twitter_alamofire_demo.entitlements;
-				DEVELOPMENT_TEAM = JUWAAV2WU4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = twitter_alamofire_demo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.codepath.twitter-alamofire-demo";
