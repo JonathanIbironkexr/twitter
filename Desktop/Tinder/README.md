@@ -3,7 +3,7 @@
 
 **Tinder** is a mock Tindr app featuring gestures and custom transitions
 
-Time spent: **X** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
@@ -26,7 +26,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-https://i.imgur.com/NkZMmGs.gif
+https://imgur.com/cUhgmXl.gif
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
