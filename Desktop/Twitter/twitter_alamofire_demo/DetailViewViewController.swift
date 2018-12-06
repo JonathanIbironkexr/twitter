@@ -1,0 +1,125 @@
+//
+//  DetailViewViewController.swift
+//  twitter_alamofire_demo
+//
+//  Created by Trustin Harris on 4/25/18.
+//  Copyright © 2018 Charles Hieger. All rights reserved.
+//
+
+import UIKit
+import AlamofireImage
+
+class DetailViewViewController: UIViewController {
+    
+    var tweet: Tweet!
+    
+    @IBOutlet weak var FavButton: UIButton!
+    @IBOutlet weak var RTButton: UIButton!
+    @IBOutlet weak var FavLabel: UILabel!
+    @IBOutlet weak var TweetText: UITextView!
+    @IBOutlet weak var AtName: UILabel!
+    @IBOutlet weak var Name: UILabel!
+    @IBOutlet weak var ProfilePic: UIImageView!
+    @IBOutlet weak var RTLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        FavLabel.text = String(tweet.favoriteCount)
+        TweetText.text = tweet.text
+        AtName.text = tweet.user.Sname
+        Name.text = tweet.user.name
+        ProfilePic.af_setImage(withURL: URL(string: tweet.user.imageURL)!)
+        RTLabel.text = String(tweet.retweetCount)
+        
+        if (tweet.retweeted == true)
+        {
+            RTButton.isSelected = true
+        } else {
+            RTButton.isSelected = false
+        }
+        
+        
+        if (tweet.favorited == true)
+        {
+            FavButton.isSelected = true
+        } else {
+            FavButton.isSelected = false
+        }
+        
+        
+        
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func RT(_ sender: UIButton) {
+        if (RTButton.isSelected != true) {
+            
+            RTButton.isSelected = true
+            tweet.retweeted = true
+            tweet.retweetCount += 1
+            self.RTLabel.text = String(tweet.retweetCount)
+            
+            //APIManager Request from Cell
+            APIManager.shared.retweet(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error Retweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully retweeted the Tweet")
+                }
+            }
+        } else if (RTButton.isSelected == true) {
+            RTButton.isSelected = false
+            tweet.retweeted = false
+            tweet.retweetCount -= 1
+            self.RTLabel.text = String(tweet.retweetCount)
+            
+            //APIManager Request from Cell
+            APIManager.shared.unretweet(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error UnRetweeting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Unretweet succesful")
+                }
+            }
+        }
+    }
+    
+    @IBAction func Fav(_ sender: UIButton) {
+        if (FavButton.isSelected != true) {
+            
+            FavButton.isSelected = true
+            tweet.favorited = true
+            tweet.favoriteCount += 1
+            self.FavLabel.text = String(tweet.favoriteCount)
+            
+            //APIManager Request from Cell
+            APIManager.shared.favorite(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error favoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully favorited the tweet")
+                }
+            }
+        } else if (FavButton.isSelected == true) {
+            FavButton.isSelected = false
+            tweet.favorited = false
+            tweet.favoriteCount -= 1
+            self.FavLabel.text = String(tweet.favoriteCount)
+            
+            //APIManager Request from Cell
+            APIManager.shared.unfavorite(tweet) { (tweet: Tweet?, error: Error?) in
+                if let  error = error {
+                    print("Error unfavoriting tweet: \(error.localizedDescription)")
+                } else if let tweet = tweet {
+                    print("Successfully unfavorited the tweet")
+                }
+            }
+        }
+    }
+}
